@@ -1,0 +1,29 @@
+# Carpetas de compilación
+/build/
+/dist/
+/nbdist/
+/out/
+
+# Configuración privada de NetBeans
+/nbproject/private/
+/nb-configuration.xml
+/nbactions.xml
+/nbactions-*.xml
+
+# Gradle
+/.nb-gradle/
+
+# Archivos temporales
+*.tmp
+*.bak
+*~
+*.swp
+*.log
+
+# JARs generados (excepto los de /libs)
+/*.jar
+!/libs/*.jar
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
