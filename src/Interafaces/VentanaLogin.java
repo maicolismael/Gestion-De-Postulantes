@@ -58,6 +58,8 @@ public class VentanaLogin extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(17, 32, 51));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -168,7 +170,12 @@ public class VentanaLogin extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(0, 51, 102));
 
         jButton2.setFont(new java.awt.Font("Roboto SemiCondensed SemiBold", 0, 14)); // NOI18N
-        jButton2.setText("ATRAS");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/volver.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -182,7 +189,7 @@ public class VentanaLogin extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addContainerGap()
                 .addComponent(jButton2)
                 .addContainerGap(17, Short.MAX_VALUE))
         );
@@ -369,6 +376,16 @@ public class VentanaLogin extends javax.swing.JFrame {
     private void cbxRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxRolActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxRolActionPerformed
+ private void regresarAMenuPrincipal() {
+        MenuInicio menuPrincipal = new MenuInicio();
+        menuPrincipal.setVisible(true);
+        this.dispose();
+    }
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+                                                 
+        regresarAMenuPrincipal();
+    // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

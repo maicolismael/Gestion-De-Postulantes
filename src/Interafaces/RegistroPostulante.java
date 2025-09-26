@@ -121,7 +121,12 @@ public class RegistroPostulante extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(227, 203, 143));
         jLabel4.setText("POSTULANTES");
 
-        jButton2.setText("boton");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/volver.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -328,6 +333,14 @@ public class RegistroPostulante extends javax.swing.JFrame {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+private void regresarAMenuPrincipal() {
+    MenuInicio menuPrincipal = new MenuInicio();
+    menuPrincipal.setVisible(true);
+    this.dispose(); // Cierra la ventana actual (RegistroPostulante)
+}
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        regresarAMenuPrincipal();// TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
     private void cargarCarreras() {
     try (Connection con = conexionbd.conexion.getConnection();
          Statement st = con.createStatement();
