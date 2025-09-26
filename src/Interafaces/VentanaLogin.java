@@ -5,7 +5,9 @@
 package Interafaces;
 
 import java.awt.Color;
-
+import conexionbd.conexion;
+import java.sql.*;
+import javax.swing.*;
 /**
  *
  * @author Home
@@ -266,6 +268,79 @@ public class VentanaLogin extends javax.swing.JFrame {
 
     private void btnLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogActionPerformed
         // TODO add your handling code here:
+        String usuario = txtUser.getText().trim();
+        String pass = txtPass.getText().trim();
+        String rol = cbxRol.getSelectedItem().toString();
+
+        if (usuario.isEmpty() || pass.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe ingresar usuario y contraseña");
+        return;
+        }
+
+        try (Connection con = conexion.getConnection()) {
+            PreparedStatement ps;
+            ResultSet rs;
+
+        if (rol.equalsIgnoreCase("Postulante")) {
+            String sql = "SELECT u.usuario, u.rol, p.nombre, p.apellido_paterno, p.apellido_materno "
+                       + "FROM usuarios u "
+                       + "JOIN postulantes p ON u.ci = p.ci "
+                       + "WHERE u.usuario=? AND u.contrasena=? AND u.rol=?";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usuario);
+            ps.setString(2, pass);
+            ps.setString(3, rol);
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                String nombre = rs.getString("nombre");
+                String apellidoP = rs.getString("apellido_paterno");
+                String apellidoM = rs.getString("apellido_materno");
+                String rolUsuario = rs.getString("rol");
+
+                JOptionPane.showMessageDialog(this, 
+                    "✅ Bienvenido " + nombre + " " + apellidoP + " " + apellidoM + " (" + rolUsuario + ")");
+
+                // Limpiar los campos después de mostrar el mensaje
+
+                // Abrir ventana de Postulante
+                // new VentanaPostulante(usuario, nombre, apellidoP, apellidoM).setVisible(true);
+                // this.dispose();
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Usuario, contraseña o rol incorrectos");
+            }
+
+        } else if (rol.equalsIgnoreCase("Administrador")) {
+            String sql = "SELECT usuario, rol FROM usuarios WHERE usuario=? AND contrasena=? AND rol=?";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usuario);
+            ps.setString(2, pass);
+            ps.setString(3, rol);
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                String rolUsuario = rs.getString("rol");
+
+                JOptionPane.showMessageDialog(this,
+                    "✅ Bienvenido Administrador: " + usuario + " (" + rolUsuario + ")");
+
+
+                // Abrir ventana de Admin
+                // new VentanaAdmin(usuario).setVisible(true);
+                // this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Usuario, contraseña o rol incorrectos");
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Rol no válido");
+        }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "⚠ Error al conectar: " + e.getMessage());
+    }
     }//GEN-LAST:event_btnLogActionPerformed
 
     private void txtUserMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUserMousePressed
