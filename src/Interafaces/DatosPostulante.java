@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interafaces;
-
+import Funciones.Sesion;
 import conexionbd.conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,39 +23,41 @@ public class DatosPostulante extends javax.swing.JFrame {
      */
     public DatosPostulante() {
         initComponents();
+        cargarPostulantePorCI(Sesion.getUsuario());
+        //Sesion.MostrarEstado();
     }
-        private void cargarPostulantePorCI(String ci) {
-    String sql = "SELECT p.nombre, p.apellido_paterno, p.apellido_materno, " +
-                 "p.fecha_nacimiento, p.telefono, p.correo, p.ci, " +
-                 "c.nombre_carrera " +
-                 "FROM postulantes p " +
-                 "JOIN carreras c ON p.id_carrera = c.id_carrera " +
-                 "WHERE p.ci = ?";
+    private void cargarPostulantePorCI(String ci) {
+        String sql = "SELECT p.nombre, p.apellido_paterno, p.apellido_materno, " +
+                     "p.fecha_nacimiento, p.telefono, p.correo, p.ci, " +
+                     "c.nombre_carrera " +
+                     "FROM postulantes p " +
+                     "JOIN carreras c ON p.id_carrera = c.id_carrera " +
+                     "WHERE p.ci = ?";
 
-    try (Connection con = conexion.getConnection();
-         PreparedStatement ps = con.prepareStatement(sql)) {
+        try (Connection con = conexion.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
 
-        ps.setString(1, ci);
+            ps.setString(1, ci);
 
-        try (ResultSet rs = ps.executeQuery()) {
-            if (rs.next()) {
-                txtNombre_detalle.setText(rs.getString("nombre"));
-                txtApePat_detalle.setText(rs.getString("apellido_paterno"));
-                txtApeMat_detalle.setText(rs.getString("apellido_materno"));
-                txtFecha_detalle.setText(rs.getString("fecha_nacimiento")); 
-                txtTelefono_detalle.setText(rs.getString("telefono"));
-                txtCorreo_detalle.setText(rs.getString("correo"));
-                txtCarrera_detalle.setText(rs.getString("nombre_carrera")); // 👈 ahora muestra el nombre
-                txtCI_detalle.setText(rs.getString("ci"));
-            } else {
-                JOptionPane.showMessageDialog(this, "No existe postulante con CI: " + ci);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    txtNombre_detalle.setText(rs.getString("nombre"));
+                    txtApePat_detalle.setText(rs.getString("apellido_paterno"));
+                    txtApeMat_detalle.setText(rs.getString("apellido_materno"));
+                    txtFecha_detalle.setText(rs.getString("fecha_nacimiento")); 
+                    txtTelefono_detalle.setText(rs.getString("telefono"));
+                    txtCorreo_detalle.setText(rs.getString("correo"));
+                    txtCarrera_detalle.setText(rs.getString("nombre_carrera")); // 👈 ahora muestra el nombre
+                    txtCI_detalle.setText(rs.getString("ci"));
+                } else {
+                    JOptionPane.showMessageDialog(this, "No existe postulante con CI: " + ci);
+                }
             }
-        }
 
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al cargar postulante: " + e.getMessage());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al cargar postulante: " + e.getMessage());
+        }
     }
-}
 
     /**
      * This method is called from within the constructor to initialize the form.

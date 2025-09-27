@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interafaces;
-
+import Funciones.Sesion;
 import java.awt.Color;
 import conexionbd.conexion;
 import java.sql.*;
@@ -306,12 +306,15 @@ public class VentanaLogin extends javax.swing.JFrame {
             String apellidoP = rs.getString("apellido_paterno");
             String apellidoM = rs.getString("apellido_materno");
             String rolUsuario = rs.getString("rol");
+            
+            // 🔹 Guardar en la sesión
+            Sesion.iniciarSesion(usuario, rolUsuario, nombre, apellidoP, apellidoM);
 
             JOptionPane.showMessageDialog(this,
                 "✅ Bienvenido " + nombre + " " + apellidoP + " " + apellidoM + " (" + rolUsuario + ")");
 
             // abrir ventana del postulante y pasar datos
-            VentanaPostulante vPost = new VentanaPostulante(usuario, nombre, apellidoP, apellidoM);
+            VentanaPostulante vPost = new VentanaPostulante();
             vPost.setVisible(true);
             this.dispose();
 
@@ -330,11 +333,16 @@ public class VentanaLogin extends javax.swing.JFrame {
 
         if (rs.next()) {
             String rolUsuario = rs.getString("rol");
-
+            
+            Sesion.iniciarSesion(usuario, rolUsuario, "", "", "");
+            
             JOptionPane.showMessageDialog(this,
                 "✅ Bienvenido Administrador: " + usuario + " (" + rolUsuario + ")");
 
             // Abrir ventana de Admin
+            VentanaAdmi vPost = new VentanaAdmi();
+            vPost.setVisible(true);
+            this.dispose();
             // new VentanaAdmin(usuario).setVisible(true);
             // this.dispose();
 

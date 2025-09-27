@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import Funciones.Sesion;
 /**
  *
  * @author Gusssss
@@ -20,14 +21,12 @@ public class ApartadoPerfilAdministrativo extends javax.swing.JFrame {
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel6, "src/imagenes/perfil.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel12, "src/imagenes/Editar.png");
         conectarBD();
+        cargarDatos(Sesion.getUsuario());
     }
-    public ApartadoPerfilAdministrativo(String ci) {
-        this(); // llama al constructor principal
-        cargarDatos(ci);
-    }
+   
     private void conectarBD() {
         try {
-            String url = "jdbc:mysql://root:JTuKQjVAmaHRdZVsVwrwiggkoVwYpIql@switchyard.proxy.rlwy.net:51254/railway"; // ⚠️ cambia por tu BD
+            String url = "jdbc:mysql://root:JTuKQjVAmaHRdZVsVwrwiggkoVwYpIql@switchyard.proxy.rlwy.net:51254/sys"; // ⚠️ cambia por tu BD
             String user = "root"; // ⚠️ cambia por tu usuario
             String pass = "JTuKQjVAmaHRdZVsVwrwiggkoVwYpIql"; // ⚠️ cambia por tu contraseña
 

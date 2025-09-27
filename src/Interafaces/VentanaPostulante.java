@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interafaces;
-
+import Funciones.Sesion;
 import conexionbd.conexion;
 import java.sql.*;
 import javax.swing.*;
@@ -12,31 +12,15 @@ public class VentanaPostulante extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaPostulante.class.getName());
     
-    private String usuario;
-    private String nombre;
-    private String apellidoP;
-    private String apellidoM;
 
     public VentanaPostulante() {
         initComponents();
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logo.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel3, "src/imagenes/logoMU.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel4, "src/imagenes/uni.png");
+        setTitle("Bienvenido " + Sesion.getNombreCompleto());
     }
 
-    public VentanaPostulante(String usuario, String nombre, String apellidoP, String apellidoM) {
-        initComponents();
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logo.png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel3, "src/imagenes/logoMU.png");
-        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel4, "src/imagenes/uni.png");
-        this.usuario = usuario;
-        this.nombre = nombre;
-        this.apellidoP = apellidoP;
-        this.apellidoM = apellidoM;
-
-        // Ejemplo: mostrar un mensaje en la ventana
-        setTitle("Bienvenido " + nombre + " " + apellidoP + " " + apellidoM);
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -213,11 +197,9 @@ public class VentanaPostulante extends javax.swing.JFrame {
 
     private void btnQRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQRActionPerformed
         // TODO add your handling code here:
-        String nombre = this.nombre;
-        String apellidoP = this.apellidoP;
-        String apellidoM = this.apellidoM;
-        String ci = this.usuario; // CI del postulante desde login
-        double monto = 500.00; // ejemplo
+        String nombre = Sesion.getNombreCompleto();
+        String ci = Sesion.getUsuario(); // el usuario es el CI en tu BD
+        double monto = 500.00; // ejemplo fijo
 
         try (Connection con = conexion.getConnection()) {
 
@@ -232,7 +214,7 @@ public class VentanaPostulante extends javax.swing.JFrame {
 
                 if (estado.equals("PENDIENTE")) {
                     // Abrir ventana de QR sobre el pago pendiente existente
-                    VentanaGenerarQR vqr = new VentanaGenerarQR(ci, nombre, apellidoP, apellidoM, monto);
+                    VentanaGenerarQR vqr = new VentanaGenerarQR(ci, Sesion.getNombreCompleto(),"","", monto);
                     vqr.setVisible(true);
                 } else {
                     // Si ya está PAGADO
@@ -248,8 +230,9 @@ public class VentanaPostulante extends javax.swing.JFrame {
                 psInsert.executeUpdate();
 
                 // Abrir ventana de QR sobre el nuevo registro
-                VentanaGenerarQR vqr = new VentanaGenerarQR(ci, nombre, apellidoP, apellidoM, monto);
-                vqr.setVisible(true);
+                 VentanaGenerarQR vqr = new VentanaGenerarQR(ci, Sesion.getNombreCompleto(), "", "", monto);
+                 vqr.setVisible(true);
+                
             }
 
         } catch (Exception e) {
@@ -265,7 +248,8 @@ public class VentanaPostulante extends javax.swing.JFrame {
         dashboard.setVisible(true);
         
         // 3. Cierra la ventana actual (MenuInicio).
-        this.dispose(); 
+        this.dispose();
+        
                            // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
