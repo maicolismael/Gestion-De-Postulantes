@@ -27,11 +27,16 @@ public class VentanaGenerarQR extends javax.swing.JFrame {
     
     public VentanaGenerarQR() {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logoMU.png");
+
         setTitle("Generar QR - Sin Datos");
     }
     
     public VentanaGenerarQR(String ci, String nombre, String apellidoP, String apellidoM, double monto) {
         initComponents();
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logoMU.png");
         this.ci = ci;
         this.nombre = nombre;
         this.apellidoP = apellidoP;
@@ -49,73 +54,83 @@ public class VentanaGenerarQR extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelAcciones = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         lblQR = new javax.swing.JLabel();
         btnGenerarQR = new javax.swing.JButton();
         btnValidarPago = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout panelAccionesLayout = new javax.swing.GroupLayout(panelAcciones);
-        panelAcciones.setLayout(panelAccionesLayout);
-        panelAccionesLayout.setHorizontalGroup(
-            panelAccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 90, Short.MAX_VALUE)
-        );
-        panelAccionesLayout.setVerticalGroup(
-            panelAccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 269, Short.MAX_VALUE)
-        );
+        jPanel1.setBackground(new java.awt.Color(17, 32, 51));
 
-        lblQR.setPreferredSize(new java.awt.Dimension(200, 400));
-
-        btnGenerarQR.setText("Generar QR");
+        btnGenerarQR.setBackground(new java.awt.Color(227, 203, 143));
+        btnGenerarQR.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
+        btnGenerarQR.setText("GENERAR QR");
+        btnGenerarQR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnGenerarQR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGenerarQRActionPerformed(evt);
             }
         });
 
-        btnValidarPago.setText("Validar pago");
+        btnValidarPago.setBackground(new java.awt.Color(227, 203, 143));
+        btnValidarPago.setFont(new java.awt.Font("Roboto Black", 1, 12)); // NOI18N
+        btnValidarPago.setText("VALIDAR PAGO");
+        btnValidarPago.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnValidarPago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnValidarPagoActionPerformed(evt);
             }
         });
 
+        jLabel1.setText("jLabel1");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(189, 189, 189)
+                .addComponent(btnGenerarQR)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addComponent(btnValidarPago)
+                .addGap(211, 211, 211))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86)
+                .addComponent(lblQR, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(lblQR, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(54, 54, 54)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGenerarQR, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnValidarPago, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(btnGenerarQR)
-                        .addGap(156, 156, 156)
-                        .addComponent(btnValidarPago)
-                        .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblQR, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)))
-                .addComponent(panelAcciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(174, 174, 174)
-                .addComponent(panelAcciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(lblQR, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnGenerarQR)
-                    .addComponent(btnValidarPago))
-                .addGap(90, 90, 90))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -187,7 +202,8 @@ public class VentanaGenerarQR extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGenerarQR;
     private javax.swing.JButton btnValidarPago;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblQR;
-    private javax.swing.JPanel panelAcciones;
     // End of variables declaration//GEN-END:variables
 }
