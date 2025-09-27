@@ -1,27 +1,30 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interafaces;
 
+import conexionbd.conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author Pc
+ * @author HP
  */
-import conexionbd.conexion; 
-import java.sql.Connection; 
-import javax.swing.JOptionPane; 
-import java.sql.PreparedStatement; 
-import java.sql.ResultSet;
-public class DashbordPostulante extends javax.swing.JPanel {
+public class DatosPostulante extends javax.swing.JFrame {
+    
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DatosPostulante.class.getName());
 
     /**
-     * Creates new form dashbordPostulante
+     * Creates new form DatosPostulante
      */
-    public DashbordPostulante() {
+    public DatosPostulante() {
         initComponents();
     }
-    private void cargarPostulantePorCI(String ci) {
+        private void cargarPostulantePorCI(String ci) {
     String sql = "SELECT p.nombre, p.apellido_paterno, p.apellido_materno, " +
                  "p.fecha_nacimiento, p.telefono, p.correo, p.ci, " +
                  "c.nombre_carrera " +
@@ -64,93 +67,39 @@ public class DashbordPostulante extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        txtCI_detalle = new javax.swing.JTextField();
-        txtCorreo_detalle = new javax.swing.JTextField();
-        txtTelefono_detalle = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
+        txtCarrera_detalle = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        txtFecha_detalle = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         txtNombre_detalle = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
+        txtCI_detalle = new javax.swing.JTextField();
         txtApePat_detalle = new javax.swing.JTextField();
+        txtCorreo_detalle = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
+        txtTelefono_detalle = new javax.swing.JTextField();
         txtApeMat_detalle = new javax.swing.JTextField();
-        txtCarrera_detalle = new javax.swing.JTextField();
-        txtFecha_detalle = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        txtCI_detalle.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        txtCI_detalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtCI_detalle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCI_detalleActionPerformed(evt);
-            }
-        });
-
-        txtCorreo_detalle.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        txtCorreo_detalle.setToolTipText("");
-        txtCorreo_detalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        txtTelefono_detalle.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        txtTelefono_detalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel9.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(227, 203, 143));
-        jLabel9.setText("APELLIDO PATERNO:");
-
-        jLabel10.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(227, 203, 143));
-        jLabel10.setText("FECHA DE NACIMIENTO:");
-
-        jLabel11.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(227, 203, 143));
-        jLabel11.setText("C.I.:");
-
-        jLabel12.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(227, 203, 143));
-        jLabel12.setText("APELLIDO MATERNO:");
-
-        jLabel2.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(227, 203, 143));
-        jLabel2.setText("NOMBRE:");
-
-        jLabel13.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(227, 203, 143));
-        jLabel13.setText("TELEFONO:");
-
-        txtNombre_detalle.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        txtNombre_detalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtNombre_detalle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombre_detalleActionPerformed(evt);
-            }
-        });
-
-        jLabel14.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(227, 203, 143));
-        jLabel14.setText("CARRERA:");
-
-        txtApePat_detalle.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        txtApePat_detalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        jLabel15.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(227, 203, 143));
-        jLabel15.setText("CORREO:");
-
-        txtApeMat_detalle.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        txtApeMat_detalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         txtCarrera_detalle.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         txtCarrera_detalle.setToolTipText("");
         txtCarrera_detalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel10.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(227, 203, 143));
+        jLabel10.setText("FECHA DE NACIMIENTO:");
 
         txtFecha_detalle.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         txtFecha_detalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -159,6 +108,10 @@ public class DashbordPostulante extends javax.swing.JPanel {
                 txtFecha_detalleActionPerformed(evt);
             }
         });
+
+        jLabel11.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(227, 203, 143));
+        jLabel11.setText("C.I.:");
 
         jPanel2.setBackground(new java.awt.Color(17, 32, 51));
 
@@ -205,13 +158,66 @@ public class DashbordPostulante extends javax.swing.JPanel {
                 .addContainerGap(319, Short.MAX_VALUE))
         );
 
+        jLabel12.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(227, 203, 143));
+        jLabel12.setText("APELLIDO MATERNO:");
+
+        jLabel2.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(227, 203, 143));
+        jLabel2.setText("NOMBRE:");
+
+        jLabel13.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(227, 203, 143));
+        jLabel13.setText("TELEFONO:");
+
+        txtNombre_detalle.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        txtNombre_detalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtNombre_detalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombre_detalleActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(227, 203, 143));
+        jLabel14.setText("CARRERA:");
+
+        txtCI_detalle.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        txtCI_detalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtCI_detalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCI_detalleActionPerformed(evt);
+            }
+        });
+
+        txtApePat_detalle.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        txtApePat_detalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        txtCorreo_detalle.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        txtCorreo_detalle.setToolTipText("");
+        txtCorreo_detalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel15.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(227, 203, 143));
+        jLabel15.setText("CORREO:");
+
+        txtTelefono_detalle.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        txtTelefono_detalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        txtApeMat_detalle.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
+        txtApeMat_detalle.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel9.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(227, 203, 143));
+        jLabel9.setText("APELLIDO PATERNO:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,11 +292,11 @@ public class DashbordPostulante extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -299,25 +305,50 @@ public class DashbordPostulante extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtCI_detalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCI_detalleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCI_detalleActionPerformed
-
-    private void txtNombre_detalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombre_detalleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombre_detalleActionPerformed
 
     private void txtFecha_detalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFecha_detalleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFecha_detalleActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-    
-    
+
+    private void txtNombre_detalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombre_detalleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombre_detalleActionPerformed
+
+    private void txtCI_detalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCI_detalleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCI_detalleActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> new DatosPostulante().setVisible(true));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;

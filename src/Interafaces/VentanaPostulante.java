@@ -19,6 +19,9 @@ public class VentanaPostulante extends javax.swing.JFrame {
 
     public VentanaPostulante() {
         initComponents();
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logo.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel3, "src/imagenes/logoMU.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel4, "src/imagenes/uni.png");
     }
 
     public VentanaPostulante(String usuario, String nombre, String apellidoP, String apellidoM) {
@@ -40,32 +43,166 @@ public class VentanaPostulante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         btnQR = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
-        btnQR.setText("Ir a generaQR");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
+        jPanel1.setLayout(null);
+
+        jPanel2.setBackground(new java.awt.Color(17, 32, 51));
+        jPanel2.setPreferredSize(new java.awt.Dimension(40, 60));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(227, 203, 143));
+        jLabel2.setText("POSTULANTE");
+        jLabel2.setToolTipText("");
+        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        jLabel3.setText("jLabel3");
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/volver.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(10, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 0, 800, 120);
+
+        jPanel4.setBackground(new java.awt.Color(17, 32, 51));
+
+        jLabel1.setText("LOGO");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(188, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(590, 120, 210, 480);
+
+        jButton2.setBackground(new java.awt.Color(227, 203, 143));
+        jButton2.setText("VERIFICAR ESTADO DE INSCRIPCION");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2);
+        jButton2.setBounds(30, 260, 260, 40);
+
+        jButton3.setBackground(new java.awt.Color(227, 203, 143));
+        jButton3.setText("CONVOCATORIA");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3);
+        jButton3.setBounds(30, 400, 260, 40);
+
+        jButton1.setBackground(new java.awt.Color(227, 203, 143));
+        jButton1.setText("VER DATOS");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(30, 190, 260, 40);
+
+        btnQR.setBackground(new java.awt.Color(227, 203, 143));
+        btnQR.setText("GENERAR QR");
+        btnQR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnQR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQRActionPerformed(evt);
             }
         });
+        jPanel1.add(btnQR);
+        btnQR.setBounds(30, 330, 260, 40);
+
+        jLabel4.setText("jLabel4");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(0, 150, 590, 450);
+
+        jPanel3.setBackground(new java.awt.Color(17, 32, 51));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 590, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 30, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(0, 120, 590, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(202, 202, 202)
-                .addComponent(btnQR)
-                .addContainerGap(209, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(325, Short.MAX_VALUE)
-                .addComponent(btnQR)
-                .addGap(39, 39, 39))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -81,7 +218,7 @@ public class VentanaPostulante extends javax.swing.JFrame {
 
         try (Connection con = conexion.getConnection()) {
 
-    // Verificar si ya existe un pago para este CI
+            // Verificar si ya existe un pago para este CI
             String checkSql = "SELECT * FROM pago WHERE ci_postulante=? ORDER BY fecha_registro DESC LIMIT 1";
             PreparedStatement psCheck = con.prepareStatement(checkSql);
             psCheck.setString(1, ci);
@@ -91,23 +228,23 @@ public class VentanaPostulante extends javax.swing.JFrame {
                 String estado = rs.getString("estado");
 
                 if (estado.equals("PENDIENTE")) {
-            // Abrir ventana de QR sobre el pago pendiente existente
+                    // Abrir ventana de QR sobre el pago pendiente existente
                     VentanaGenerarQR vqr = new VentanaGenerarQR(ci, nombre, apellidoP, apellidoM, monto);
                     vqr.setVisible(true);
                 } else {
-            // Si ya está PAGADO
-                JOptionPane.showMessageDialog(this, "Usted ya ha pagado.");
+                    // Si ya está PAGADO
+                    JOptionPane.showMessageDialog(this, "Usted ya ha pagado.");
                 }
 
             } else {
-        // No existe ningún pago, crear nuevo registro pendiente
+                // No existe ningún pago, crear nuevo registro pendiente
                 String insertSql = "INSERT INTO pago(ci_postulante, monto, estado) VALUES (?, ?, 'PENDIENTE')";
                 PreparedStatement psInsert = con.prepareStatement(insertSql);
                 psInsert.setString(1, ci);
                 psInsert.setDouble(2, monto);
                 psInsert.executeUpdate();
 
-        // Abrir ventana de QR sobre el nuevo registro
+                // Abrir ventana de QR sobre el nuevo registro
                 VentanaGenerarQR vqr = new VentanaGenerarQR(ci, nombre, apellidoP, apellidoM, monto);
                 vqr.setVisible(true);
             }
@@ -116,6 +253,26 @@ public class VentanaPostulante extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
         }
     }//GEN-LAST:event_btnQRActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       // 1. Crea una instancia de la ventana DashbordPostulante
+        DatosPostulante dashboard = new DatosPostulante();
+        
+        // 2. Muestra la nueva ventana.
+        dashboard.setVisible(true);
+        
+        // 3. Cierra la ventana actual (MenuInicio).
+        this.dispose(); 
+                           // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,5 +301,17 @@ public class VentanaPostulante extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnQR;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
