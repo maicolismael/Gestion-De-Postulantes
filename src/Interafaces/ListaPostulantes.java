@@ -30,56 +30,69 @@ public class ListaPostulantes extends javax.swing.JFrame {
     }
     public void cargarListaEstudiantes() {
     
-    // El JTable debe llamarse 'tablaEstudiantes' o jTable1 (ajusta esto si es necesario)
     DefaultTableModel modelo = new DefaultTableModel();
     Connection con = null; 
     Statement stmt = null;
     ResultSet rs = null;
     
     try {
-        // 1. Obtener la conexión usando tu CLASE EXISTENTE (ConexionDB)
-        // Asegúrate que tu clase 'ConexionDB' está importada correctamente al inicio del archivo.
-        con = conexion.getConnection(); 
+        con = conexionbd.conexion.getConnection(); 
         stmt = con.createStatement();
         
-        // 2. Consulta SQL: Selecciona solo las columnas requeridas de la tabla 'postulantes'
-        String SQL = "SELECT ci, nombre, apellido_paterno, apellido_materno, id_carrera FROM postulantes"; 
+        
+        String SQL = 
+            "SELECT " +
+                "p.ci, p.nombre, p.apellido_paterno, p.apellido_materno, " +
+                "c.nombre_carrera, " + // ⬅️ Nuevo campo
+                "e.nota_final, e.estado " +
+            "FROM postulantes p " +
+            "LEFT JOIN estado_postulacion e ON p.ci = e.ci_postulante " +
+            "LEFT JOIN carreras c ON p.id_carrera = c.id_carrera"; // ⬅️ Segundo JOIN
+        
         rs = stmt.executeQuery(SQL);
 
-        // --- Llenar Encabezados (5 columnas) ---
+        // --- Llenar Encabezados (7 columnas: 5 iniciales + 2 de estado) ---
         modelo.addColumn("CI");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido Paterno");
         modelo.addColumn("Apellido Materno");
-        modelo.addColumn("ID Carrera"); 
+        modelo.addColumn("Carrera");      // ⬅️ Encabezado cambiado
+        modelo.addColumn("Nota Final"); 
+        modelo.addColumn("Estado");     
         
         // --- Llenar Filas ---
         while (rs.next()) {
-            Object[] fila = new Object[5]; // 5 datos por fila
+            Object[] fila = new Object[7]; // 7 datos por fila
             
-            // Los índices deben coincidir con el orden del SELECT
+            // Datos básicos del postulante
             fila[0] = rs.getString("ci");
             fila[1] = rs.getString("nombre");
             fila[2] = rs.getString("apellido_paterno");
             fila[3] = rs.getString("apellido_materno");
-            fila[4] = rs.getObject("id_carrera"); // Usamos getObject ya que puede ser NULL
+            
+            
+            fila[4] = rs.getString("nombre_carrera"); 
+            
+            
+            fila[5] = rs.getObject("nota_final"); 
+            fila[6] = rs.getString("estado");     
             
             modelo.addRow(fila);
         }
 
         // 3. Asignar el modelo lleno al JTable
-        // !! VERIFICA y cambia 'tablaEstudiantes' por el nombre real de tu JTable si es diferente (ej: jTable1)
+        // ¡Recuerda ajustar 'jTable1' si tu componente tiene otro nombre!
         jTable1.setModel(modelo); 
         
     } catch (SQLException e) {
-        // Manejo de errores de Base de Datos
+        // Manejo de errores
         JOptionPane.showMessageDialog(this, 
-            "Error al cargar la lista. Verifique la conexión o la consulta SQL.\n" + e.getMessage(), 
+            "Error al cargar la lista con el estado y carrera.\n" + e.getMessage(), 
             "Error de Base de Datos", 
             JOptionPane.ERROR_MESSAGE);
         e.printStackTrace();
     } finally {
-        // 4. CIERRE SEGURO DE RECURSOS (MUY IMPORTANTE)
+        // 4. Cierre seguro de recursos
         try {
             if (rs != null) rs.close();
             if (stmt != null) stmt.close();
@@ -89,6 +102,7 @@ public class ListaPostulantes extends javax.swing.JFrame {
         }
     }
 }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -104,6 +118,10 @@ public class ListaPostulantes extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+
+        jTable1.setFont(new java.awt.Font("Roboto SemiCondensed", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -121,17 +139,11 @@ public class ListaPostulantes extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
