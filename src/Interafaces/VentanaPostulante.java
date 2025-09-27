@@ -26,6 +26,9 @@ public class VentanaPostulante extends javax.swing.JFrame {
 
     public VentanaPostulante(String usuario, String nombre, String apellidoP, String apellidoM) {
         initComponents();
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logo.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel3, "src/imagenes/logoMU.png");
+        rsscalelabel.RSScaleLabel.setScaleLabel(jLabel4, "src/imagenes/uni.png");
         this.usuario = usuario;
         this.nombre = nombre;
         this.apellidoP = apellidoP;
