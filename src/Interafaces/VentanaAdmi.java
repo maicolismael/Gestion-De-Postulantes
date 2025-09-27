@@ -266,7 +266,11 @@ public class VentanaAdmi extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+      ApartadoPerfilAdministrativo perfil = new ApartadoPerfilAdministrativo();
+      perfil.setVisible(true);
+    
+    // Si quieres cerrar la ventana actual al abrir el perfil, deja esta línea:
+      this.dispose();            
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
