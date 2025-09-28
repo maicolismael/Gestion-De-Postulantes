@@ -314,62 +314,70 @@ public class VentanaLogin extends javax.swing.JFrame {
 
             rs = ps.executeQuery();
 
+            if (rs.next()) {
+                String nombre = rs.getString("nombre");
+                String apellidoP = rs.getString("apellido_paterno");
+                String apellidoM = rs.getString("apellido_materno");
+                String rolUsuario = rs.getString("rol");
+
+            // Guardar en la sesión
+                Sesion.iniciarSesion(usuario, rolUsuario, nombre, apellidoP, apellidoM);
+
+                JOptionPane.showMessageDialog(this,
+                    "✅ Bienvenido " + nombre + " " + apellidoP + " " + apellidoM + " (" + rolUsuario + ")");
+
+                // Abrir ventana del postulante
+                VentanaPostulante vPost = new VentanaPostulante();
+                vPost.setVisible(true);
+                this.dispose();
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Usuario, contraseña o rol incorrectos");
+            }
+
+        } else if (rol.equalsIgnoreCase("Administrador")) {
+        // Consulta con JOIN para traer los datos del administrativo
+            String sql = "SELECT u.usuario, u.rol, a.nombre, a.apellido_paterno, a.apellido_materno "
+                   + "FROM usuarios u "
+                   + "JOIN administrativos a ON u.ci = a.ci "
+                   + "WHERE u.usuario=? AND u.contrasena=? AND u.rol=?";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, usuario);
+            ps.setString(2, pass);
+            ps.setString(3, rol);
+
+            rs = ps.executeQuery();
+
         if (rs.next()) {
             String nombre = rs.getString("nombre");
             String apellidoP = rs.getString("apellido_paterno");
             String apellidoM = rs.getString("apellido_materno");
             String rolUsuario = rs.getString("rol");
-            
-            // 🔹 Guardar en la sesión
+
+            // Guardar en la sesión igual que para postulante
             Sesion.iniciarSesion(usuario, rolUsuario, nombre, apellidoP, apellidoM);
 
             JOptionPane.showMessageDialog(this,
-                "✅ Bienvenido " + nombre + " " + apellidoP + " " + apellidoM + " (" + rolUsuario + ")");
-
-            // abrir ventana del postulante y pasar datos
-            VentanaPostulante vPost = new VentanaPostulante();
-            vPost.setVisible(true);
-            this.dispose();
-
-        } else {
-            JOptionPane.showMessageDialog(this, "Usuario, contraseña o rol incorrectos");
-        }
-
-    } else if (rol.equalsIgnoreCase("Administrador")) {
-        String sql = "SELECT usuario, rol FROM usuarios WHERE usuario=? AND contrasena=? AND rol=?";
-        ps = con.prepareStatement(sql);
-        ps.setString(1, usuario);
-        ps.setString(2, pass);
-        ps.setString(3, rol);
-
-        rs = ps.executeQuery();
-
-        if (rs.next()) {
-            String rolUsuario = rs.getString("rol");
-            
-            Sesion.iniciarSesion(usuario, rolUsuario, "", "", "");
-            
-            JOptionPane.showMessageDialog(this,
-                "✅ Bienvenido Administrador: " + usuario + " (" + rolUsuario + ")");
+                "✅ Bienvenido Administrador: " + nombre + " " + apellidoP + " " + apellidoM + " (" + rolUsuario + ")");
 
             // Abrir ventana de Admin
-            VentanaAdministrativos vPost = new VentanaAdministrativos();
-            vPost.setVisible(true);
-            
+            VentanaAdministrativos vAdmin = new VentanaAdministrativos();
+            vAdmin.setVisible(true);
             this.dispose();
-            // new VentanaAdmin(usuario).setVisible(true);
-            // this.dispose();
 
         } else {
             JOptionPane.showMessageDialog(this, "Usuario, contraseña o rol incorrectos");
         }
+
     } else {
         JOptionPane.showMessageDialog(this, "Rol no válido");
     }
 
 } catch (Exception e) {
     JOptionPane.showMessageDialog(this, "⚠ Error al conectar: " + e.getMessage());
+    e.printStackTrace();
 }
+
 
     }//GEN-LAST:event_btnLogActionPerformed
 
