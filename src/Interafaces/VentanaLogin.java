@@ -85,7 +85,6 @@ public class VentanaLogin extends javax.swing.JFrame {
         jLabel4.setToolTipText("");
 
         txtUser.setFont(new java.awt.Font("Roboto Condensed Light", 1, 18)); // NOI18N
-        txtUser.setForeground(new java.awt.Color(204, 204, 204));
         txtUser.setText("Ingrese el usuario");
         txtUser.setBorder(null);
         txtUser.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -110,7 +109,6 @@ public class VentanaLogin extends javax.swing.JFrame {
         jSeparator2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         txtPass.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 18)); // NOI18N
-        txtPass.setForeground(new java.awt.Color(204, 204, 204));
         txtPass.setText("**********");
         txtPass.setBorder(null);
         txtPass.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -340,8 +338,9 @@ public class VentanaLogin extends javax.swing.JFrame {
                 "✅ Bienvenido Administrador: " + usuario + " (" + rolUsuario + ")");
 
             // Abrir ventana de Admin
-            VentanaAdmi vPost = new VentanaAdmi();
+            VentanaAdministrativos vPost = new VentanaAdministrativos();
             vPost.setVisible(true);
+            
             this.dispose();
             // new VentanaAdmin(usuario).setVisible(true);
             // this.dispose();

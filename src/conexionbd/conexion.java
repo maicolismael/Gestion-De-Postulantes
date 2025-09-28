@@ -20,7 +20,15 @@ public class conexion {
         return DriverManager.getConnection(URL, USER, PASS);
     }
 
-    // Método de prueba
+    public static void close(Connection conn) {
+    if (conn != null) {
+        try {
+            conn.close();
+        } catch (SQLException e) {
+            System.err.println("Error al cerrar la conexión.");
+        }
+    }
+}
     public static void main(String[] args) {
         try (Connection con = getConnection()) {
             System.out.println("¡Conexión exitosa!");
