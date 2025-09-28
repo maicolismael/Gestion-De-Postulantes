@@ -253,7 +253,16 @@ public class VentanaAdministrativos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+       // CONEXIÓN PARA EL BOTÓN "INICIAR SESION"
+    
+    // 1. Crea una instancia de la ventana de Login
+    MenuInicio Menu = new MenuInicio();
+    
+    // 2. Muestra la nueva ventana.
+    Menu.setVisible(true);
+    
+    // 3. Cierra la ventana actual (MenuInicio).
+    this.dispose(); // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

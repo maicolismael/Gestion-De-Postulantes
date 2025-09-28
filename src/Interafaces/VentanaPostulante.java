@@ -281,7 +281,16 @@ public class VentanaPostulante extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       
+// CONEXIÓN PARA EL BOTÓN "INICIAR SESION"
+    
+    // 1. Crea una instancia de la ventana de Login
+    MenuInicio Menu = new MenuInicio();
+    
+    // 2. Muestra la nueva ventana.
+    Menu.setVisible(true);
+    
+    // 3. Cierra la ventana actual (MenuInicio).
+    this.dispose();       
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
