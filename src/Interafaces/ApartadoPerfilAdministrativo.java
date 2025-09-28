@@ -208,6 +208,11 @@ public class ApartadoPerfilAdministrativo extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Roboto Condensed Black", 0, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(242, 242, 242));
         jButton2.setText("Editar Datos");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jTextField1.setFont(new java.awt.Font("Roboto Condensed", 0, 18)); // NOI18N
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -310,6 +315,12 @@ public class ApartadoPerfilAdministrativo extends javax.swing.JFrame {
         VentanaCambioContraseña cambio = new VentanaCambioContraseña();
         cambio.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    ApartadoEditarDatosAdmin editar = new ApartadoEditarDatosAdmin();
+    editar.setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     public static void main(String args[]) {
 
