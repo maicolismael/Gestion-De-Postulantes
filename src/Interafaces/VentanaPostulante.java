@@ -295,8 +295,9 @@ public class VentanaPostulante extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         VentanaLogin ventanaLogin = new VentanaLogin();
-    ventanaLogin.setVisible(true);
-    ventanaLogin.setLocationRelativeTo(null); // Centrar la ventana
+        ventanaLogin.setVisible(true);
+        ventanaLogin.setLocationRelativeTo(null); // Centrar la ventana
+        Sesion.cerrarSesion();
 
     // Cerrar la ventana actual (VentanaPostulante)
     this.dispose();
