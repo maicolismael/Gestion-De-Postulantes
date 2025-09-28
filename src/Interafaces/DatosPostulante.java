@@ -316,7 +316,12 @@ public class DatosPostulante extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFecha_detalleActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        VentanaPostulante ventanaPostulante = new VentanaPostulante();
+    ventanaPostulante.setVisible(true);
+    ventanaPostulante.setLocationRelativeTo(null); // Centrar la ventana
+    
+    // Cerrar la ventana actual (DatosPostulante)
+    this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtNombre_detalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombre_detalleActionPerformed
