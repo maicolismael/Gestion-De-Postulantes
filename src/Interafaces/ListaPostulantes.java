@@ -3,109 +3,58 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interafaces;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import javax.swing.JOptionPane;
+
+import conexionbd.conexion;
+import java.sql.*;
 import javax.swing.table.DefaultTableModel;
-// Asegúrate de importar tu clase de conexión
-import conexionbd.conexion; 
-/**
- *
- * @author Home
- */
+
 public class ListaPostulantes extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ListaPostulantes.class.getName());
 
     /**
-     * Creates new form ListaEstudiantes
+     * Creates new form ListaPostulantes
      */
     public ListaPostulantes() {
         initComponents();
-        setLocationRelativeTo(null);
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); 
-        cargarListaEstudiantes();
-        
+        mostrarPostulantes();
     }
-    public void cargarListaEstudiantes() {
-    
-    DefaultTableModel modelo = new DefaultTableModel();
-    Connection con = null; 
-    Statement stmt = null;
-    ResultSet rs = null;
-    
-    try {
-        con = conexionbd.conexion.getConnection(); 
-        stmt = con.createStatement();
-        
-        
-        String SQL = 
-            "SELECT " +
-                "p.ci, p.nombre, p.apellido_paterno, p.apellido_materno, " +
-                "c.nombre_carrera, " + // ⬅️ Nuevo campo
-                "e.nota_final, e.estado " +
-            "FROM postulantes p " +
-            "LEFT JOIN estado_postulacion e ON p.ci = e.ci_postulante " +
-            "LEFT JOIN carreras c ON p.id_carrera = c.id_carrera"; // ⬅️ Segundo JOIN
-        
-        rs = stmt.executeQuery(SQL);
 
-        // --- Llenar Encabezados (7 columnas: 5 iniciales + 2 de estado) ---
+    private void mostrarPostulantes() {
+        DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("CI");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido Paterno");
         modelo.addColumn("Apellido Materno");
-        modelo.addColumn("Carrera");      // ⬅️ Encabezado cambiado
-        modelo.addColumn("Nota Final"); 
-        modelo.addColumn("Estado");     
-        
-        // --- Llenar Filas ---
-        while (rs.next()) {
-            Object[] fila = new Object[7]; // 7 datos por fila
-            
-            // Datos básicos del postulante
-            fila[0] = rs.getString("ci");
-            fila[1] = rs.getString("nombre");
-            fila[2] = rs.getString("apellido_paterno");
-            fila[3] = rs.getString("apellido_materno");
-            
-            
-            fila[4] = rs.getString("nombre_carrera"); 
-            
-            
-            fila[5] = rs.getObject("nota_final"); 
-            fila[6] = rs.getString("estado");     
-            
-            modelo.addRow(fila);
-        }
+        modelo.addColumn("Fecha Nacimiento");
+        modelo.addColumn("Teléfono");
+        modelo.addColumn("Correo");
+        modelo.addColumn("ID Carrera");
 
-        // 3. Asignar el modelo lleno al JTable
-        // ¡Recuerda ajustar 'jTable1' si tu componente tiene otro nombre!
-        jTable1.setModel(modelo); 
-        
-    } catch (SQLException e) {
-        // Manejo de errores
-        JOptionPane.showMessageDialog(this, 
-            "Error al cargar la lista con el estado y carrera.\n" + e.getMessage(), 
-            "Error de Base de Datos", 
-            JOptionPane.ERROR_MESSAGE);
-        e.printStackTrace();
-    } finally {
-        // 4. Cierre seguro de recursos
-        try {
-            if (rs != null) rs.close();
-            if (stmt != null) stmt.close();
-            if (con != null) con.close();
-        } catch (SQLException ex) {
-            System.err.println("Error al cerrar recursos: " + ex.getMessage());
+        try (Connection con = conexion.getConnection()) {
+            String sql = "SELECT * FROM postulantes";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Object[] fila = new Object[8];
+                fila[0] = rs.getString("ci");
+                fila[1] = rs.getString("nombre");
+                fila[2] = rs.getString("apellido_paterno");
+                fila[3] = rs.getString("apellido_materno");
+                fila[4] = rs.getDate("fecha_nacimiento");
+                fila[5] = rs.getString("telefono");
+                fila[6] = rs.getString("correo");
+                fila[7] = rs.getInt("id_carrera");
+                modelo.addRow(fila);
+            }
+
+            tblPostulantes.setModel(modelo);
+
+        } catch (Exception e) {
+            System.out.println("Error al mostrar postulantes: " + e.getMessage());
         }
     }
-}
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -116,15 +65,14 @@ public class ListaPostulantes extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblPostulantes = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-
-        jTable1.setFont(new java.awt.Font("Roboto SemiCondensed", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblPostulantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -135,21 +83,66 @@ public class ListaPostulantes extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane2.setViewportView(tblPostulantes);
+
+        jScrollPane1.setViewportView(jScrollPane2);
+
+        jButton1.setText("Ver Estado Aprobados");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Ver estado Pagos");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(77, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 456, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addComponent(jButton1)
+                .addGap(107, 107, 107)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(143, 143, 143))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        VerEstadoAprobados login = new VerEstadoAprobados();
+        login.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        VerEstadoPagos ventanaPagos = new VerEstadoPagos();
+        ventanaPagos.setVisible(true);
+        ventanaPagos.setLocationRelativeTo(null); // Centrar la ventana
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,7 +170,10 @@ public class ListaPostulantes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblPostulantes;
     // End of variables declaration//GEN-END:variables
 }
