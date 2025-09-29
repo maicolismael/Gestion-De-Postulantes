@@ -21,11 +21,15 @@ public class CrearNuevaContraseña extends javax.swing.JFrame {
      */
     public CrearNuevaContraseña() {
         initComponents();
+        setLocationRelativeTo(null);
+
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel3, "src/imagenes/logoMU.png");
     }
 
     public CrearNuevaContraseña(String correo) {
         initComponents();
+        setLocationRelativeTo(null);
+
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel3, "src/imagenes/logoMU.png");
         this.correoUsuario = correo;
     }

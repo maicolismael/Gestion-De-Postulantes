@@ -27,7 +27,8 @@ public class VentanaCambioContraseña extends javax.swing.JFrame {
         
         usuarioID =Sesion.getUsuario();
         initComponents();
-        
+        setLocationRelativeTo(null);
+
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logo.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel2, "src/imagenes/logoMU.png");
     }

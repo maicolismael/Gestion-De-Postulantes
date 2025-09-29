@@ -21,6 +21,8 @@ public class VentanaLogin extends javax.swing.JFrame {
      */
     public VentanaLogin() {
         initComponents();
+        setLocationRelativeTo(null);
+
         //rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/colorAzul.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logo.png");
     }

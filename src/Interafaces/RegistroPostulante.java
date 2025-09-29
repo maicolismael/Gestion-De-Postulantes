@@ -12,6 +12,8 @@ public class RegistroPostulante extends javax.swing.JFrame {
 
     public RegistroPostulante() {
         initComponents();
+        setLocationRelativeTo(null);
+
         cargarCarreras(); 
     }
 

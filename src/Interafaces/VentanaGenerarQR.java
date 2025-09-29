@@ -27,6 +27,8 @@ public class VentanaGenerarQR extends javax.swing.JFrame {
     
     public VentanaGenerarQR() {
         initComponents();
+        setLocationRelativeTo(null);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logoMU.png");
 

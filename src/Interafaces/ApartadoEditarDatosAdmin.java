@@ -18,11 +18,14 @@ public class ApartadoEditarDatosAdmin extends javax.swing.JFrame {
     private String ciUsuario;
     public ApartadoEditarDatosAdmin() {
         initComponents();
+        setLocationRelativeTo(null);
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logo.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel6, "src/imagenes/perfil.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel12, "src/imagenes/Editar.png");
         conectarBD();
         cargarDatos(Sesion.getUsuario());
+        
+
     }
    
     private void conectarBD() {

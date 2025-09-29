@@ -24,6 +24,8 @@ public class ListaPostulantes extends javax.swing.JFrame {
      */
     public ListaPostulantes() {
         initComponents();
+        setLocationRelativeTo(null);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE); 
         cargarListaEstudiantes();
         

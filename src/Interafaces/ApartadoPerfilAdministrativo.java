@@ -19,12 +19,14 @@ public class ApartadoPerfilAdministrativo extends javax.swing.JFrame {
     public ApartadoPerfilAdministrativo() {
        
         initComponents();
-        
+        setLocationRelativeTo(null);
+
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logo.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel6, "src/imagenes/perfil.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel12, "src/imagenes/Editar.png");
         conectarBD();
         cargarDatos(Sesion.getUsuario());
+        
     }
    
     private void conectarBD() {

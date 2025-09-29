@@ -15,6 +15,8 @@ public class VentanaPostulante extends javax.swing.JFrame {
 
     public VentanaPostulante() {
         initComponents();
+        setLocationRelativeTo(null);
+
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logo.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel3, "src/imagenes/logoMU.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel4, "src/imagenes/uni.png");

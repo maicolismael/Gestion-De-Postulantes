@@ -18,6 +18,8 @@ public class MenuInicio extends javax.swing.JFrame {
      */
     public MenuInicio() {
         initComponents();
+        setLocationRelativeTo(null);
+
         cargarUltimaNoticia();
         actualizarEstadoMenu();
         setSize(800, 600);

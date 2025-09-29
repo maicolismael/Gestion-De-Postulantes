@@ -23,6 +23,8 @@ public class VentanaGestionNoticias extends javax.swing.JFrame {
      */
     public VentanaGestionNoticias() {
         initComponents();
+        setLocationRelativeTo(null);
+
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logo.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel2, "src/imagenes/logoMU.png");
     }

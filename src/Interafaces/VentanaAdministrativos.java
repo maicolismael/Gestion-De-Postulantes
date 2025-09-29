@@ -17,7 +17,8 @@ public class VentanaAdministrativos extends javax.swing.JFrame {
      */
     public VentanaAdministrativos() {
         initComponents();
-        
+        setLocationRelativeTo(null);
+
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logo.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel2, "src/imagenes/logoMU.png");
     }

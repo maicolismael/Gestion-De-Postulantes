@@ -23,6 +23,7 @@ public class DatosPostulante extends javax.swing.JFrame {
      */
     public DatosPostulante() {
         initComponents();
+        setLocationRelativeTo(null);
         cargarPostulantePorCI(Sesion.getUsuario());
         //Sesion.MostrarEstado();
     }
