@@ -26,8 +26,6 @@ public class VentanaPostulante extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         btnQR = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -109,46 +107,22 @@ public class VentanaPostulante extends javax.swing.JFrame {
         jPanel1.add(jPanel4);
         jPanel4.setBounds(590, 120, 210, 480);
 
-        jButton2.setBackground(new java.awt.Color(227, 203, 143));
-        jButton2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jButton2.setText("VERIFICAR ESTADO DE INSCRIPCION");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton2);
-        jButton2.setBounds(30, 260, 260, 40);
-
-        jButton3.setBackground(new java.awt.Color(227, 203, 143));
-        jButton3.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jButton3.setText("CONVOCATORIA");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton3);
-        jButton3.setBounds(30, 400, 260, 40);
-
         jButton1.setBackground(new java.awt.Color(227, 203, 143));
         jButton1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jButton1.setText("VER DATOS");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(30, 190, 260, 40);
+        jButton1.setBounds(30, 230, 260, 40);
 
         btnQR.setBackground(new java.awt.Color(227, 203, 143));
         btnQR.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         btnQR.setText("GENERAR QR");
-        btnQR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnQR.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnQR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQRActionPerformed(evt);
@@ -182,9 +156,7 @@ public class VentanaPostulante extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton5);
-        jButton5.setBounds(30, 460, 260, 40);
-
-        jLabel4.setText("jLabel4");
+        jButton5.setBounds(30, 420, 260, 40);
         jPanel1.add(jLabel4);
         jLabel4.setBounds(0, 150, 590, 450);
 
@@ -247,14 +219,6 @@ public class VentanaPostulante extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
     MenuInicio Menu = new MenuInicio();
@@ -295,8 +259,6 @@ public class VentanaPostulante extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnQR;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;

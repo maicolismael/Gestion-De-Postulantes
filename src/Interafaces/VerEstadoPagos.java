@@ -2,6 +2,7 @@
 package Interafaces;
 import conexionbd.conexion;
 import java.sql.*;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 public class VerEstadoPagos extends javax.swing.JFrame {
@@ -14,6 +15,7 @@ public class VerEstadoPagos extends javax.swing.JFrame {
     }
     
     private void mostrarPagos() {
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID Pago");
         modelo.addColumn("CI Postulante");

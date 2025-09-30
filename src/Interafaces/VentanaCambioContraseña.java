@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;   
 import Funciones.Sesion;
+import javax.swing.JFrame;
 /**
  *
  * @author Home
@@ -19,6 +20,7 @@ public class VentanaCambioContraseña extends javax.swing.JFrame {
         
         usuarioID =Sesion.getUsuario();
         initComponents();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logo.png");
