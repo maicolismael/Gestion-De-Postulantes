@@ -26,6 +26,14 @@ public class DatosPostulante extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         cargarPostulantePorCI(Sesion.getUsuario());
         //Sesion.MostrarEstado();
+        txtNombre_detalle.setEditable(false);
+    txtApePat_detalle.setEditable(false);
+    txtApeMat_detalle.setEditable(false);
+    txtFecha_detalle.setEditable(false);
+    txtTelefono_detalle.setEditable(false);
+    txtCorreo_detalle.setEditable(false);
+    txtCarrera_detalle.setEditable(false);
+    txtCI_detalle.setEditable(false);
     }
     private void cargarPostulantePorCI(String ci) {
         String sql = "SELECT p.nombre, p.apellido_paterno, p.apellido_materno, " +
