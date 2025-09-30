@@ -327,7 +327,7 @@ public class VentanaLogin extends javax.swing.JFrame {
                 Sesion.iniciarSesion(usuario, rolUsuario, nombre, apellidoP, apellidoM);
 
                 JOptionPane.showMessageDialog(this,
-                    "✅ Bienvenido " + nombre + " " + apellidoP + " " + apellidoM + " (" + rolUsuario + ")");
+                    " Bienvenido " + nombre + " " + apellidoP + " " + apellidoM + " (" + rolUsuario + ")");
 
                 // Abrir ventana del postulante
                 VentanaPostulante vPost = new VentanaPostulante();
@@ -402,7 +402,7 @@ public class VentanaLogin extends javax.swing.JFrame {
             txtPass.setForeground(Color.black);
         }
         if (txtUser.getText().isEmpty()){  
-            txtUser.setText("");
+            txtUser.setText("Ingrese el usuario");
             txtUser.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtPassMousePressed

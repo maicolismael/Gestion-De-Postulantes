@@ -42,30 +42,27 @@ public class VentanaCambioContraseña extends javax.swing.JFrame {
     boolean exito = false;
 
     try {
-        // 1. OBTENER LA CONEXIÓN (La línea que te daba error está aquí)
+       
         conn = conexion.getConnection(); 
         
-        // Si la conexión falla (por credenciales o red), tu método getConnection() lanzará SQLException,
-        // que será capturada por el bloque catch de abajo.
-        
-        // --- PASO A: Verificar Contraseña Actual ---
+        // Verificar Contraseña Actual 
         try (PreparedStatement psVerificar = conn.prepareStatement(sqlVerificar)) {
-            psVerificar.setString(1, usuarioID); // Usa el ID del usuario actual
-            psVerificar.setString(2, actual);    // Contraseña actual ingresada
+            psVerificar.setString(1, usuarioID); 
+            psVerificar.setString(2, actual);    
             
             try (ResultSet rs = psVerificar.executeQuery()) {
                 if (!rs.next()) {
                     // Contraseña actual es incorrecta
                     JOptionPane.showMessageDialog(this, "La Contraseña Actual es incorrecta.", "Error de Verificación", JOptionPane.ERROR_MESSAGE);
-                    return false; // Salir, ya que la verificación falló
+                    return false; 
                 }
             }
         }
 
-        // --- PASO B: Actualizar Contraseña ---
+        // Actualizar contraseña 
         try (PreparedStatement psActualizar = conn.prepareStatement(sqlActualizar)) {
-            psActualizar.setString(1, nueva);     // La nueva contraseña
-            psActualizar.setString(2, usuarioID); // El ID del usuario
+            psActualizar.setString(1, nueva);     // nueva contraseña
+            psActualizar.setString(2, usuarioID); // ID del usuario
             
             int filasAfectadas = psActualizar.executeUpdate();
             if (filasAfectadas > 0) {
@@ -74,11 +71,11 @@ public class VentanaCambioContraseña extends javax.swing.JFrame {
         }
 
     } catch (SQLException e) { 
-        // Captura cualquier error de BD (conexión fallida, consulta mal formada, etc.)
+        //error de BD 
         JOptionPane.showMessageDialog(this, "Error de base de datos al realizar la operación: " + e.getMessage(), "Error de BD", JOptionPane.ERROR_MESSAGE);
         e.printStackTrace();
     } finally {
-        // ⚠️ Asegura que la conexión se cierre SIEMPRE
+  
         conexion.close(conn); 
     }
     return exito;
@@ -373,7 +370,6 @@ public class VentanaCambioContraseña extends javax.swing.JFrame {
         String nueva = new String(txtPass1.getPassword());
         String confirmar = new String(txtPass2.getPassword());
         
-        // 1. Validaciones
         if (actual.isEmpty() || nueva.isEmpty() || confirmar.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.", "Error de Validación", JOptionPane.ERROR_MESSAGE);
             return;
@@ -384,8 +380,7 @@ public class VentanaCambioContraseña extends javax.swing.JFrame {
             txtPass2.setText("");
             return; 
         }
-        
-        // 2. Verificación y Actualización
+
         if (verificarYActualizarContraseña(actual, nueva)) {
             JOptionPane.showMessageDialog(this, "Contraseña cambiada exitosamente " , "Éxito", JOptionPane.INFORMATION_MESSAGE);
             this.dispose(); 
