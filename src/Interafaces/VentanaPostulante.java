@@ -56,13 +56,11 @@ public class VentanaPostulante extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(17, 32, 51));
         jPanel2.setPreferredSize(new java.awt.Dimension(40, 60));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semilight", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Roboto Condensed ExtraBold", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(227, 203, 143));
         jLabel2.setText("POSTULANTE");
         jLabel2.setToolTipText("");
         jLabel2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        jLabel3.setText("jLabel3");
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/volver.png"))); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -77,10 +75,10 @@ public class VentanaPostulante extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 271, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(143, 143, 143)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -88,14 +86,15 @@ public class VentanaPostulante extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(10, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
 
         jPanel1.add(jPanel2);
@@ -103,29 +102,28 @@ public class VentanaPostulante extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(17, 32, 51));
 
-        jLabel1.setText("LOGO");
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(252, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel4);
         jPanel4.setBounds(590, 120, 210, 480);
 
         jButton2.setBackground(new java.awt.Color(227, 203, 143));
+        jButton2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jButton2.setText("VERIFICAR ESTADO DE INSCRIPCION");
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +135,7 @@ public class VentanaPostulante extends javax.swing.JFrame {
         jButton2.setBounds(30, 260, 260, 40);
 
         jButton3.setBackground(new java.awt.Color(227, 203, 143));
+        jButton3.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jButton3.setText("CONVOCATORIA");
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -148,6 +147,7 @@ public class VentanaPostulante extends javax.swing.JFrame {
         jButton3.setBounds(30, 400, 260, 40);
 
         jButton1.setBackground(new java.awt.Color(227, 203, 143));
+        jButton1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jButton1.setText("VER DATOS");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -159,6 +159,7 @@ public class VentanaPostulante extends javax.swing.JFrame {
         jButton1.setBounds(30, 190, 260, 40);
 
         btnQR.setBackground(new java.awt.Color(227, 203, 143));
+        btnQR.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         btnQR.setText("GENERAR QR");
         btnQR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnQR.addActionListener(new java.awt.event.ActionListener() {
@@ -186,6 +187,7 @@ public class VentanaPostulante extends javax.swing.JFrame {
         jPanel3.setBounds(0, 120, 590, 30);
 
         jButton5.setBackground(new java.awt.Color(227, 203, 143));
+        jButton5.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jButton5.setText("CERRAR SESION");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

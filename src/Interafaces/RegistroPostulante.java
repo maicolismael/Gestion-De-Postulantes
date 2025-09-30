@@ -49,7 +49,7 @@ public class RegistroPostulante extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel2.setText("NOMBRE:");
 
         jTextField1.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
@@ -81,25 +81,25 @@ public class RegistroPostulante extends javax.swing.JFrame {
         jTextField7.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel9.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel9.setText("APELLIDO PATERNO:");
 
-        jLabel10.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel10.setText("FECHA DE NACIMIENTO:");
 
-        jLabel11.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel11.setText("C.I.:");
 
-        jLabel12.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel12.setText("APELLIDO MATERNO:");
 
-        jLabel13.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel13.setText("TELEFONO:");
 
-        jLabel14.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel14.setText("CARRERA:");
 
-        jLabel15.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel15.setText("CORREO:");
 
         jButton1.setBackground(new java.awt.Color(17, 32, 51));
@@ -174,16 +174,13 @@ public class RegistroPostulante extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel14)
-                                        .addGap(171, 171, 171))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(65, 65, 65)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(93, 93, 93)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel10)
-                                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -236,16 +233,13 @@ public class RegistroPostulante extends javax.swing.JFrame {
                     .addComponent(jLabel15)
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabel10))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14)))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
