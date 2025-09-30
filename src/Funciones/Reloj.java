@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Funciones;
 
 import java.text.SimpleDateFormat;
@@ -9,10 +6,7 @@ import java.util.Date;
 import java.util.Locale;
 import javax.swing.JLabel;
 import javax.swing.Timer;  
-/**
- *
- * @author HP
- */
+
 public class Reloj {
     private Timer timer;
      public void iniciarReloj(JLabel etiqueta) {

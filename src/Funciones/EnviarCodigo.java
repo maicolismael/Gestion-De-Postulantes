@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Funciones;
 
-/**
- *
- * @author MICHEL NINA ZARATE
- */
 import java.util.Properties;
 import jakarta.mail.*;
 import jakarta.mail.internet.*;
@@ -15,8 +8,8 @@ import jakarta.mail.internet.*;
 public class EnviarCodigo {
     
         public static void enviarCorreo(String destinatario, String codigo) {
-        final String remitente = "tucorreo@gmail.com";  // Tu Gmail
-        final String clave = "tu_contraseña_de_app";   // Contraseña de aplicación
+        final String remitente = "tucorreo@gmail.com"; 
+        final String clave = "tu_contraseña_de_app"; 
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");

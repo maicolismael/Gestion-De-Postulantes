@@ -13,7 +13,6 @@ public class RegistroPostulante extends javax.swing.JFrame {
     public RegistroPostulante() {
         initComponents();
         setLocationRelativeTo(null);
-
         cargarCarreras(); 
     }
 
@@ -286,7 +285,6 @@ public class RegistroPostulante extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debe seleccionar una fecha de nacimiento.");
             return;
         }
-    // obtener id_carrera del combo
     String carreraSeleccionada = (String) jComboBox1.getSelectedItem();
     int idCarrera = Integer.parseInt(carreraSeleccionada.split(" - ")[0]);
     
@@ -295,7 +293,7 @@ public class RegistroPostulante extends javax.swing.JFrame {
     }
     if (ciExiste(ci)) {
     JOptionPane.showMessageDialog(this, "El CI ingresado ya existe en la base de datos.", "CI duplicado", JOptionPane.WARNING_MESSAGE);
-    return; // Detiene el guardado
+    return; 
 }
 
     String sql = "INSERT INTO postulantes (ci, nombre, apellido_paterno, apellido_materno, fecha_nacimiento, telefono, correo, id_carrera) "
@@ -327,26 +325,25 @@ public class RegistroPostulante extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jTextField4ActionPerformed
 private void regresarAMenuPrincipal() {
     MenuInicio menuPrincipal = new MenuInicio();
     menuPrincipal.setVisible(true);
-    this.dispose(); // Cierra la ventana actual (RegistroPostulante)
+    this.dispose(); 
 }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        regresarAMenuPrincipal();// TODO add your handling code here:
+        regresarAMenuPrincipal();
     }//GEN-LAST:event_jButton2ActionPerformed
     private void cargarCarreras() {
     try (Connection con = conexionbd.conexion.getConnection();
          Statement st = con.createStatement();
          ResultSet rs = st.executeQuery("SELECT id_carrera, nombre_carrera FROM carreras")) {
 
-        jComboBox1.removeAllItems(); // limpiar los items
+        jComboBox1.removeAllItems();
         while (rs.next()) {
             int id = rs.getInt("id_carrera");
             String nombre = rs.getString("nombre_carrera");
-            // guardamos tanto id como nombre en el combo
             jComboBox1.addItem(id + " - " + nombre);
         }
 
@@ -380,17 +377,13 @@ private void regresarAMenuPrincipal() {
     if (jTextField7.getText().trim().isEmpty()) {
         mensaje.append("Falta ingresar el Teléfono\n");
     }
-
-    // Validar que se haya escogido algo en el combo
     if (jComboBox1.getSelectedItem() == null) {
         mensaje.append("Debe seleccionar una Carrera\n");
     }
-
     if (mensaje.length() > 0) {
         JOptionPane.showMessageDialog(this, mensaje.toString(), "Campos faltantes", JOptionPane.WARNING_MESSAGE);
         return false;
     }
-
     return true;
 }
     
@@ -413,9 +406,6 @@ private void regresarAMenuPrincipal() {
     
     return false; 
 }
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

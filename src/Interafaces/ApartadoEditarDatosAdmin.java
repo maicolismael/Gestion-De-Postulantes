@@ -10,7 +10,6 @@ import Funciones.Sesion;
  *
  * @author Gusssss
  */
-
 public class ApartadoEditarDatosAdmin extends javax.swing.JFrame {
     private Connection conn;
     private PreparedStatement ps;
@@ -24,8 +23,6 @@ public class ApartadoEditarDatosAdmin extends javax.swing.JFrame {
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel12, "src/imagenes/Editar.png");
         conectarBD();
         cargarDatos(Sesion.getUsuario());
-        
-
     }
    
     private void conectarBD() {
@@ -70,10 +67,9 @@ public class ApartadoEditarDatosAdmin extends javax.swing.JFrame {
     try {
         String sql = "UPDATE administrativos SET correo = ?, telefono = ? WHERE ci = ?";
         ps = conn.prepareStatement(sql);
-        ps.setString(1, jTextField1.getText()); // correo
-        ps.setString(2, jTextField2.getText()); // telefono
-        ps.setString(3, jLabel13.getText());    // CI fijo en label
-
+        ps.setString(1, jTextField1.getText()); 
+        ps.setString(2, jTextField2.getText()); 
+        ps.setString(3, jLabel13.getText());  
         int filas = ps.executeUpdate();
         if (filas > 0) {
             JOptionPane.showMessageDialog(this, "✅ Datos actualizados correctamente");
@@ -344,8 +340,6 @@ public class ApartadoEditarDatosAdmin extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ApartadoEditarDatosAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ApartadoEditarDatosAdmin().setVisible(true);

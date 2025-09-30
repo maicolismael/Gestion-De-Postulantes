@@ -20,20 +20,18 @@ public class ApartadoPerfilAdministrativo extends javax.swing.JFrame {
        
         initComponents();
         setLocationRelativeTo(null);
-
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logo.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel6, "src/imagenes/perfil.png");
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel12, "src/imagenes/Editar.png");
         conectarBD();
-        cargarDatos(Sesion.getUsuario());
-        
+        cargarDatos(Sesion.getUsuario());   
     }
-   
+    
     private void conectarBD() {
         try {
-            String url = "jdbc:mysql://root:JTuKQjVAmaHRdZVsVwrwiggkoVwYpIql@switchyard.proxy.rlwy.net:51254/sys"; // ⚠️ cambia por tu BD
-            String user = "root"; // ⚠️ cambia por tu usuario
-            String pass = "JTuKQjVAmaHRdZVsVwrwiggkoVwYpIql"; // ⚠️ cambia por tu contraseña
+            String url = "jdbc:mysql://root:JTuKQjVAmaHRdZVsVwrwiggkoVwYpIql@switchyard.proxy.rlwy.net:51254/sys"; 
+            String user = "root"; 
+            String pass = "JTuKQjVAmaHRdZVsVwrwiggkoVwYpIql";
 
             conn = DriverManager.getConnection(url, user, pass);
             System.out.println("✅ Conexión exitosa a la BD.");
