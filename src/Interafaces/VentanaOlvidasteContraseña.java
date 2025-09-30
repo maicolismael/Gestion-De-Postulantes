@@ -29,6 +29,7 @@ public class VentanaOlvidasteContraseña extends javax.swing.JFrame {
     private String codigoGenerado; 
     public VentanaOlvidasteContraseña() {
         initComponents();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
 
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel1, "src/imagenes/logo.png");

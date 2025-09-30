@@ -3,6 +3,7 @@ package Interafaces;
 
 import conexionbd.conexion;
 import java.sql.*;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 public class ListaPostulantes extends javax.swing.JFrame {
@@ -10,6 +11,7 @@ public class ListaPostulantes extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ListaPostulantes.class.getName());
     public ListaPostulantes() {
         initComponents();
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         rsscalelabel.RSScaleLabel.setScaleLabel(jLabel2,"src/imagenes/logoMU.png");
         mostrarPostulantes();
